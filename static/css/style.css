@@ -1,57 +1,10 @@
 /* GENERAL */
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
-
-body {
-    font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-}
-
-/* navbar */
-.navbar {
-  margin-bottom: 0;
-}
-.navbar-inverse {
-  background-color: #1C1C1C;
-  border-color: #1C1C1C;
-}
-.navbar-inverse .navbar-brand {
-  color: #FFFFFF;
-  margin-left: 5vw;
-}
-
-.navbar-toggle {
-  color: #FFFFFF;
-}
-
-.navbar-right {
-  margin-right: 5vw;
-}
-
-.jumbotron {
-  background:url(/static/img/space.jpg) center no-repeat;
-  background-size: cover;
-  height: 35vw;
-  margin-bottom: 40px;
-}
-
-.jumbotron h1 {
-  color: #FFFFFF;
-}
-
-.jumbotron h3 {
-  color: #E6E6E6;
-}
-
-
-.w3-black,.w3-hover-black:hover{
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  color:#fff!important;background-color:#1C1C1C!important
-}
-
 .container ul li {
   text-align: left;
   line-height: 1.5;
   padding: 0.5em 0; /*前後の文との余白*/
+}
+
+.release {
+  margin-top: 200px;
 }
