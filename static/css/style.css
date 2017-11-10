@@ -1,4 +1,9 @@
 /* GENERAL */
+
+h3 {
+  font-weight: 300;
+}
+
 .container ul li {
   text-align: left;
   line-height: 1.5;
