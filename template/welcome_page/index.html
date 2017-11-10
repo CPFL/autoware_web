@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock title %}
+{% block content %}
+
+<div class="jumbotron">
+  <h1>Hello Autoware :)</h1>
+  <h3>Open-source software for urban self-driving mobility.</h3>
+  <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+
+  <nav class="menu">
+     <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+     <label class="menu-open-button" for="menu-open">
+       <img alt="Brand" src="/static/img/autoware_logo2.png" style="width: 65px;height: 65px;">
+    </label>
+
+     <a href="https://www.youtube.com/watch?v=EcRdoJATdzE" class="menu-item blue"> <i class="fa fa-film"></i> </a>
+     <a href="https://github.com/CPFL/Autoware" class="menu-item green"> <i class="fa fa-github"></i> </a>
+     <a href="https://autoware.herokuapp.com/" class="menu-item red"> <i class="fa fa-slack"></i> </a>
+     <a href="https://rosbag.tier4.jp/" class="menu-item purple"> <i class="fa fa-database"></i> </a>
+     <a href="https://www.automan.ai/" class="menu-item orange"> <i class="fa fa-user"></i> </a>
+     <a href="https://maptools.tier4.jp/" class="menu-item lightblue"> <i class="fa fa-map-o"></i> </a>
+  </nav>
+</div>
+
+<h1>Autoware Platform</h1>
+<div class="container">
+  <p>Open-source software for urban autonomous driving, maintained by Tier IV.</p>
+  <p>The following functions are supported:</p>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-lg-6">
+          <div class="container">
+            <ul>
+              <li>3D Localization</li>
+              <li>3D Mapping</li>
+              <li>Path Planning</li>
+              <li>Path Following</li>
+              <li>Accel/Brake/Steering Control</li>
+              <li>Data Logging</li>
+              <li>Car/Pedestrian/Object Detection</li>
+              <li>Traffic Signal Detection</li>
+              <li>Traffic Light Recognition</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-6 col-lg-6">
+          <div class="container">
+            <ul>
+              <li>Lane Detection</li>
+              <li>Object Tracking</li>
+              <li>Sensor Calibration</li>
+              <li>Sensor Fusion</li>
+              <li>Cloud-oriented Maps</li>
+              <li>Connected Automation</li>
+              <li>Smartphone Navigation</li>
+              <li>Software Simulation</li>
+              <li>Virtual Reality</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<h1>Release</h1>
+<p>...</p>
+
+
+{% endblock content %}

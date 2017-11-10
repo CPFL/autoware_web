@@ -1,0 +1,60 @@
+<!--<!DOCTYPE html>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Open-source software for urban self-driving mobility.">
+	<meta name="author" content="TierIV">
+	<meta property="og:title" content="Autoware" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://autoware.ai/" />
+	<meta property="og:image" content="/static/img/autoware_logo.png" />
+	<meta property="og:site_name" content="Autoware" />
+	<meta property="og:description" content="Open-source software for urban self-driving mobility." />
+	<link rel="shortcut icon" href="/static/img/autoware_icon.ico">
+
+	<!-- favicon -->
+	<link rel="icon" href="/static/img/autoware_icon.ico">
+	<!--[if IE]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+	<title>Autoware</title>
+
+	<!-- CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/w3.css" rel="stylesheet">
+  <link href="/static/css/menu.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- JS -->
+	<script src="/static/js/jquery-2.2.4.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-inverse bg-inverse">
+  <a class="navbar-brand" href="#">
+    Autoware
+  </a>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="/">HOME</a></li>
+	</ul>
+</nav>
+
+<body>
+  {% block content %}
+  {{ content }}
+  {% endblock %}
+</body>
+
+<!-- FOOTER -->
+<footer id="footer" class="w3-container w3-padding-64 w3-margin-top w3-black w3-center w3-large">
+	<a href="http://www.tier4.jp/"><i class="fa fa-globe w3-hover-opacity"></i></a>
+	<a href="https://www.facebook.com/TierIV/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+	<a href="https://github.com/CPFL/Autoware"><i class="fa fa-github w3-hover-opacity"></i></a>
+	<br>
+	<p>&copy;Tier IV | Powered by TierIV</a></p>
+</footer>
+</html>
