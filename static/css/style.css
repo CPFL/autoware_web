@@ -1,8 +1,14 @@
 /* GENERAL */
 
+body {
+    background-color: #000;
+    color: #FFF;
+}
+
 h3 {
   font-weight: 300;
 }
+
 
 .container ul li {
   text-align: left;
@@ -13,3 +19,4 @@ h3 {
 .release {
   margin-top: 200px;
 }
+

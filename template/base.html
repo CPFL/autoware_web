@@ -30,36 +30,80 @@
 
 
 <body>
-  {% block content %}
-  {{ content }}
-  {% endblock %}
+    <div class="index-page sidebar-collapse">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-info fixed-top navbar-transparent " color-on-scroll="400">
+            <div class="container">
+                <div class="navbar-translate">
+                    <a class="navbar-brand" href="/" rel="tooltip" data-placement="bottom" target="_blank">
+                            Autoware.ai
+                    </a>
+                    <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar bar1"></span>
+                        <span class="navbar-toggler-bar bar2"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="/static/img/blurred-image-1.jpg">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="fa fa-home"></i>
+                                <p>HOME</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/CPFL/Autoware" target="_blank">
+                                <i class="fa fa-github"></i>
+                                <p>Github</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" target="_blank">
+                                <i class="fa fa-docker"></i>
+                                <p>Docker</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://autoware.herokuapp.com" target="_blank">
+                                <i class="fa fa-slack"></i>
+                                <p>Slack</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% block content %}
+        {{ content }}
+        {% endblock %}
+    </div>
 </body>
 
 <!-- FOOTER -->
 <div class="section section-download" id="#download-section" data-background-color="black">
-		<div class="container">
-				<div class="row justify-content-md-center sharing-area text-center">
-						<div class="text-center col-md-12 col-lg-8">
-								<h3>Thank you for supporting us!</h3>
-						</div>
-						<div class="text-center col-md-12 col-lg-8">
-								<a target="_blank" href="http://www.tier4.jp/" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip" title="Like us">
-										<i class="fa fa-globe"></i>
-								</a>
-								<a target="_blank" href="https://www.facebook.com/TierIV/" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip" title="Like us">
-										<i class="fa fa-facebook-square"></i>
-								</a>
-								<a target="_blank" href="https://github.com/CPFL/Autoware" class="btn btn-neutral btn-icon btn-github btn-round btn-lg" rel="tooltip" title="Star on Github">
-										<i class="fa fa-github"></i>
-								</a>
-						</div>
-						<div class="text-center col-md-12 col-lg-8">
-								<br>
-								<br>
-								<p>&copy;Tier IV | Powered by TierIV</a></p>
-						</div>
-				</div>
-		</div>
+    <div class="container">
+        <div class="row justify-content-md-center sharing-area text-center">
+            <div class="text-center col-md-12 col-lg-8">
+                <h3>Thank you for supporting us!</h3>
+            </div>
+            <div class="text-center col-md-12 col-lg-8">
+                <a target="_blank" href="http://www.tier4.jp/" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip" title="Like us">
+                    <i class="fa fa-globe"></i>
+                </a>
+                <a target="_blank" href="https://www.facebook.com/TierIV/" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip" title="Like us">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a target="_blank" href="https://github.com/CPFL/Autoware" class="btn btn-neutral btn-icon btn-github btn-round btn-lg" rel="tooltip" title="Star on Github">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            <div class="text-center col-md-12 col-lg-8">
+                <br>
+                <br>
+                <p>&copy;Tier IV | Powered by TierIV</a></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 
