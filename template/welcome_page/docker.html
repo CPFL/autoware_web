@@ -1,0 +1,178 @@
+{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
+
+<!-- メインカラム開始 -->
+<div id="main">
+
+  <div class="test2_section normal">
+
+    <h2>概要</h2>
+    <p>dockerを使用してAutoware動作環境を構築する手順を紹介します</p>
+
+  </div>
+  
+  <div class="test2_section normal">
+
+    <h2>目次</h2>
+    <ul class="list">
+      <li>Install Docker</li>
+      <li>Install Nvidia Docker</li>
+      <li>Use Autoware using by Autoware's Docker Image</li>
+    </ul>
+
+  </div>
+
+  <div class="test2_section normal">
+
+    <h2>Install Docker</h2>
+
+    <div class="heading">
+      <h3>古いversionのdockerのuninstallを行う</h3>
+    </div>
+
+    <div class="section emphasis">
+
+      <p>$ sudo apt-get remove docker docker-engine docker.io</p>
+
+    </div>
+
+    <p>何もパッケージがインストールされていない状態になればOK</p>
+
+    <div class="heading">
+      <h3>Docker CEをinstallする</h3>
+    </div>
+
+    <p>dockerをinstallする方法は複数あるが今回はレポジトリを使ってinsallを行った</p>
+
+    <div class="heading">
+      <h4>レポジトリの設定を行う</h4>
+    </div>
+
+    <p>apt-getのupdateを行う</p>      
+    <div class="section emphasis">
+      <p>$ sudo apt-get update</p>
+    </div>
+
+    <p>apt-getに使用するレポジトリの許可を与える</p>      
+    <div class="section emphasis">
+      <p>$  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</p>
+    </div>
+
+
+    <p>dockerの公式GPG keyを追加する</p>      
+    <div class="section emphasis">
+      <p>$  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</p>
+    </div>
+
+    <p>鍵の確認を行う。以下のようになればOK</p>      
+    <div class="section emphasis">
+      <p>$ sudo apt-key fingerprint 0EBFCD88</p>
+      
+      <p>pub   4096R/0EBFCD88 2017-02-22</p>
+      <p>   Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88</p>
+      <p>uid                  Docker Release (CE deb) <docker@docker.com></p>
+      <p>sub   4096R/F273FCD8 2017-02-22</p>
+    </div>
+
+    <p>repositoryのインストールを行う</p>      
+    <div class="section emphasis">
+      <p>sudo add-apt-repository \</p>
+      <p>"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</p>
+      <p>$(lsb_release -cs) \</p>
+      <p>stable"</p>
+    </div>
+
+
+    <div class="heading">
+      <h4>Install Docoer CE</h4>
+    </div>
+
+    <p>apt-getのupdateを行う</p>      
+    <div class="section emphasis">
+      <p>$ sudo apt-get update</p>
+    </div>
+
+    <p>最新版のインストールを行う</p>      
+    <div class="section emphasis">
+      <p>$ sudo apt-get install docker-ce</p>
+    </div>
+
+    <p>インストールの確認を行う</p>      
+    <div class="section emphasis">
+      <p>$ sudo docker run hello-world</p>
+    </div>    
+  </div>
+
+  <div class="test2_section normal">
+    <h2>Install Nvidia Docker</h2>
+
+
+    <p>debファイルをダウンロードする</p>
+    <div class="section emphasis">
+      <p>$ wget https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb</p>
+    </div>
+
+    <p>ダウンロードしたdebファイルのインストールを行う</p>
+    <div class="section emphasis">
+      <p>$ sudo dpkg -i nvidia-docker_1.0.1-1_amd64.deb</p>
+    </div>
+
+    <p>nvidia-dockerのサービスが起動するので確認する</p>
+    <div class="section emphasis">
+      <p>$ systemctl list-units --type=service | grep -i nvidia-docker</p>
+    </div>
+
+    <p>nvidia-dockerの起動確認を行う</p>
+    <div class="section emphasis">
+      <p>$ sudo nvidia-docker run --rm nvidia/cuda nvidia-smi</p>
+    </div>
+
+  </div>
+
+  <div class="test2_section normal">
+    <h2>Use Autoware using by Autoware's Docker Image</h2>
+
+    <div class="heading">
+      <h3>How to build Autoware Docker</h3>
+    </div>
+    
+    <p>move to docker directory in Autoware</p>
+    <div class="section emphasis">
+      <p>$ cd Autoware/docker</p>
+    </div>
+
+    <p>run build.sh in case of ubuntu16.04</p>
+    <div class="section emphasis">
+      <p>$ sh build.sh kinetic</p>
+    </div>
+
+    <p>run build.sh in case of ubuntu14.04</p>
+    <div class="section emphasis">
+      <p>$ sh build.sh indigo</p>
+    </div>
+
+    <div class="heading">
+      <h3>How to run Autoware Docker</h3>
+    </div>
+
+
+    <p>run run.sh in case of default path(/home/$USER/shared_dir)</p>
+    <div class="section emphasis">
+      <p>$ sh run.sh kinetic</p>
+    </div>
+
+    <p>run build.sh in case of any path</p>
+    <div class="section emphasis">
+      <p>$ sh run.sh kinetic {SHARED_DIR_PATH}</p>
+    </div>
+    <p>In case of ubuntu 14.04,change kinetic to indigo</p>
+
+  </div> 
+
+  
+</div>
+
+<!-- メインカラム終了 -->
+
+
+
+{% endblock content %}

@@ -1,0 +1,111 @@
+/* --- サイドバー定義　開始 --- */
+
+/* --- サイドバー定義　終了 --- */
+
+/* --- メインカラム定義　開始 --- */
+#main {
+    color: black;
+    background-color: white;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 80pt;
+    margin-bottom: 10pt;
+    padding-top:20pt;
+    padding-bottom:10pt;
+    width: 80%; /* メインカラムの幅 */
+}
+
+/* --- セクション（共通設定） --- */
+#main div.test2_section {
+margin: 0 20px 2em 20px; /* セクションのマージン（上右下左） */
+}
+/* --- 標準セクション --- */
+/* 見出し */
+#main div.normal h2 {
+margin: 0 0 1em; /* 見出しのマージン（上、左右、下） */
+padding: 5px 8px; /* 見出しのパディング（上下、左右） */
+background-color: #e0e0e0; /* 見出しの背景色 */
+font-size: 130%; /* 見出しの文字サイズ */
+}
+
+/* 段 */
+#main div.normal p {
+margin: 0 5px 1em; /* 段落のマージン（上、左右、下） */
+line-height: 160%; /* 行の高さ */
+}
+
+/* --- 強調セクション --- */
+#main div.emphasis {
+padding: 1.1em 15px 0; /* セクションのパディング（上、左右、下） */
+border: 1px #c0c0c0 solid; /* セクションの境界線 */
+margin-bottom:20pt;
+margin-left:20pt;
+margin-right:20pt;
+}
+ /* 見出し */
+#main div.emphasis h2 {
+margin: 0 0 0.8em; /* 見出しのマージン（上、左右、下） */
+font-size: 130%; /* 見出しの文字サイズ */
+color: #ff8000; /* 見出しの文字色 */
+}
+ /* 段落 */
+#main div.emphasis p {
+margin: 0 0 1em; /* 段落のマージン（上、左右、下） */
+line-height: 150%; /* 行の高さ */
+}
+
+/* --- リストエリア --- */
+ul.list {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+/* --- リスト項目 --- */
+ul.list li {
+padding: 0 0 5px 15px; /* 項目のパディング（上右下左） */
+background: url(/static/img/docker/triangle1.gif) no-repeat 3px 0.2em; /* マーカー画像 */
+line-height: 130%;
+}
+
+/* --- リストエリア --- */
+ul.list2 {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+/* --- リスト項目 --- */
+ul.list2 li {
+padding: 0 0 5px 18px; /* 項目のパディング（上右下左） */
+background: url(disc.gif) no-repeat 5px 0.4em; /* マーカー画像 */
+line-height: 130%;
+}
+
+/* --- 見出しエリア --- */
+div.heading {
+width: 600px; /* 見出しエリアの幅 */
+margin-bottom: 1em;
+padding: 4px 0; /* 見出しエリアのパディング（上下、左右） */
+/* border-bottom: 1px #c0c0c0 solid; /\* 見出しエリアの下境界線 *\/ */
+}
+
+/* --- 見出し --- */
+div.heading h3 {
+margin: 0;
+padding: 3px 3px 0 5px; /* 見出しのパディング（上右下左） */
+border-left: 5px #ff8000 solid; /* 見出しの左境界線 */
+font-size: 130%; /* 見出しの文字サイズ */
+line-height: 100%;
+}
+
+/* --- 見出し2 --- */
+div.heading h4 {
+margin: 0;
+padding: 3px 3px 0 5px; /* 見出しのパディング（上右下左） */
+border-left: 5px #00008b solid; /* 見出しの左境界線 */
+font-size: 110%; /* 見出しの文字サイズ */
+line-height: 100%;
+}
+
+/* --- メインカラム定義　開始 --- */

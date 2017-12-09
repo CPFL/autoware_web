@@ -7,3 +7,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'welcome_page/index.html')
+
+def docker_install(request):
+    return render(request, 'welcome_page/docker.html')
