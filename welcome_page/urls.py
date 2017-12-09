@@ -2,6 +2,7 @@ from django.conf.urls import url
 
 from . import views
 
+app_name = 'autoware_web'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^docker/$', views.docker_install, name='docker'),
