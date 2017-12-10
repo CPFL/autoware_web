@@ -24,6 +24,7 @@
   <div class="test2_section normal">
 
     <h2>Install Docker</h2>
+    <p>Docker本体のインストールを行う。インストール手順が変わっている可能性もあるのでインストールできない場合は<a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/"><font color="blue">Dockerのinstallページ</font></a>を確認する</p>
 
     <div class="heading">
       <h3>古いversionのdockerのuninstallを行う</h3>
@@ -105,7 +106,8 @@
   <div class="test2_section normal">
     <h2>Install Nvidia Docker</h2>
 
-
+    <p>DockerのコンテナからGPUを使用するために NVIDIAが開発するDocker Pluginをインストールする</p>
+    <br>
     <p>debファイルをダウンロードする</p>
     <div class="section emphasis">
       <p>$ wget https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb</p>
@@ -131,6 +133,9 @@
   <div class="test2_section normal">
     <h2>Use Autoware using by Autoware's Docker Image</h2>
 
+    <p>nvidia-dockerを使ってAutowareの実行環境を構築する。Autowareに構築用のbuildファイルと実行ファイルがあるのでそれを使用する</p>
+    <br>
+    
     <div class="heading">
       <h3>How to build Autoware Docker</h3>
     </div>
