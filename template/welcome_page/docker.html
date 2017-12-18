@@ -1,22 +1,22 @@
 {% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
 
-<!-- メインカラム開始 -->
+<!-- The main column begins here. -->
 <div id="main">
 
   <div class="test2_section normal">
 
-    <h2>概要</h2>
-    <p>dockerを使用してAutoware動作環境を構築する手順を紹介します</p>
+    <h2>Overview</h2>
+    <p>This website provides the instruction about how to install Autoware to your system using Docker.</p>
 
   </div>
   
   <div class="test2_section normal">
 
-    <h2>目次</h2>
+    <h2>Outline</h2>
     <ul class="list">
       <li>Install Docker</li>
-      <li>Install Nvidia Docker</li>
-      <li>Use Autoware using by Autoware's Docker Image</li>
+      <li>Install NVIDIA Docker</li>
+      <li>Install Autoware Docker Image</li>
     </ul>
 
   </div>
@@ -24,10 +24,10 @@
   <div class="test2_section normal">
 
     <h2>Install Docker</h2>
-    <p>Docker本体のインストールを行う。インストール手順が変わっている可能性もあるのでインストールできない場合は<a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/"><font color="blue">Dockerのinstallページ</font></a>を確認する</p>
+    <p>You first need to build the Docker environment. If you cannot install Docker through the following process, please check <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/"><font color="blue">Docker's installation website</font></a>.</p>
 
     <div class="heading">
-      <h3>古いversionのdockerのuninstallを行う</h3>
+      <h3>Uninstall the old version of Docker.</h3>
     </div>
 
     <div class="section emphasis">
@@ -36,35 +36,35 @@
 
     </div>
 
-    <p>何もパッケージがインストールされていない状態になればOK</p>
+    <p>You are ready to move on the next step if all packages related to Docker are removed.</p>
 
     <div class="heading">
-      <h3>Docker CEをinstallする</h3>
+      <h3>Install Docker CE.</h3>
     </div>
 
-    <p>dockerをinstallする方法は複数あるが今回はレポジトリを使ってinsallを行った</p>
+    <p>You may want to install Docker using the repository, though there are several other ways to install Docker.</p>
 
     <div class="heading">
-      <h4>レポジトリの設定を行う</h4>
+      <h4>Set up the repository.</h4>
     </div>
 
-    <p>apt-getのupdateを行う</p>      
+    <p>Do update on apt-get.</p>      
     <div class="section emphasis">
       <p>$ sudo apt-get update</p>
     </div>
 
-    <p>apt-getに使用するレポジトリの許可を与える</p>      
+    <p>Permit apt-get to access the repository.</p>      
     <div class="section emphasis">
       <p>$  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</p>
     </div>
 
 
-    <p>dockerの公式GPG keyを追加する</p>      
+    <p>Add Docker's official GPG key docker.</p>      
     <div class="section emphasis">
       <p>$  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</p>
     </div>
 
-    <p>鍵の確認を行う。以下のようになればOK</p>      
+    <p>Validate the key. If you see the fingerprint below, you are reay to move on the next step.</p>      
     <div class="section emphasis">
       <p>$ sudo apt-key fingerprint 0EBFCD88</p>
       
@@ -74,7 +74,7 @@
       <p>sub   4096R/F273FCD8 2017-02-22</p>
     </div>
 
-    <p>repositoryのインストールを行う</p>      
+    <p>Install the repository.</p>      
     <div class="section emphasis">
       <p>sudo add-apt-repository \</p>
       <p>"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</p>
@@ -84,46 +84,46 @@
 
 
     <div class="heading">
-      <h4>Install Docoer CE</h4>
+      <h4>Install Docker CE</h4>
     </div>
 
-    <p>apt-getのupdateを行う</p>      
+    <p>Update on apt-get.</p>      
     <div class="section emphasis">
       <p>$ sudo apt-get update</p>
     </div>
 
-    <p>最新版のインストールを行う</p>      
+    <p>Install the latest version of Docker CE.</p>      
     <div class="section emphasis">
       <p>$ sudo apt-get install docker-ce</p>
     </div>
 
-    <p>インストールの確認を行う</p>      
+    <p>Validate the installation succeeded.</p>      
     <div class="section emphasis">
       <p>$ sudo docker run hello-world</p>
     </div>    
   </div>
 
   <div class="test2_section normal">
-    <h2>Install Nvidia Docker</h2>
+    <h2>Install NVIDIA Docker</h2>
 
-    <p>DockerのコンテナからGPUを使用するために NVIDIAが開発するDocker Pluginをインストールする</p>
+    <p>You need to install Docker Plugin provided by NVIDIA in order to access NVIDIA GPUs from Docker Container.</p>
     <br>
-    <p>debファイルをダウンロードする</p>
+    <p>Download the .deb file.</p>
     <div class="section emphasis">
       <p>$ wget https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb</p>
     </div>
 
-    <p>ダウンロードしたdebファイルのインストールを行う</p>
+    <p>Install the downloaded .deb file.</p>
     <div class="section emphasis">
       <p>$ sudo dpkg -i nvidia-docker_1.0.1-1_amd64.deb</p>
     </div>
 
-    <p>nvidia-dockerのサービスが起動するので確認する</p>
+    <p>Check if the nvidia-docker service exists.</p>
     <div class="section emphasis">
       <p>$ systemctl list-units --type=service | grep -i nvidia-docker</p>
     </div>
 
-    <p>nvidia-dockerの起動確認を行う</p>
+    <p>Check if the nvidia-docker service runs.</p>
     <div class="section emphasis">
       <p>$ sudo nvidia-docker run --rm nvidia/cuda nvidia-smi</p>
     </div>
@@ -131,52 +131,52 @@
   </div>
 
   <div class="test2_section normal">
-    <h2>Use Autoware using by Autoware's Docker Image</h2>
+    <h2>Install Autoware Docker Image</h2>
 
-    <p>nvidia-dockerを使ってAutowareの実行環境を構築する。Autowareに構築用のbuildファイルと実行ファイルがあるのでそれを使用する</p>
+    <p>You can build the Autoware runtime environment using nvidia-docker. We provide the build script to simplify the installation of Autoware as follows.</p>
     <br>
     
     <div class="heading">
-      <h3>How to build Autoware Docker</h3>
+      <h3>How to build Autoware Docker.</h3>
     </div>
     
-    <p>move to docker directory in Autoware</p>
+    <p>Move to the docker directory in Autoware.</p>
     <div class="section emphasis">
       <p>$ cd Autoware/docker</p>
     </div>
 
-    <p>run build.sh in case of ubuntu16.04</p>
+    <p>Run build.sh kinetic if you use Ubuntu 16.04.</p>
     <div class="section emphasis">
       <p>$ sh build.sh kinetic</p>
     </div>
 
-    <p>run build.sh in case of ubuntu14.04</p>
+    <p>Otherwise, run build.sh indigo for Ubuntu 14.04. We do not support other versions of Ubuntu at this moment.</p>
     <div class="section emphasis">
       <p>$ sh build.sh indigo</p>
     </div>
 
     <div class="heading">
-      <h3>How to run Autoware Docker</h3>
+      <h3>How to run Autoware Docker.</h3>
     </div>
 
 
-    <p>run run.sh in case of default path(/home/$USER/shared_dir)</p>
+    <p>Run run.sh kinetic if you use Ubuntu 16.04, assuming that the default path is "/home/$USER/shared_dir".</p>
     <div class="section emphasis">
       <p>$ sh run.sh kinetic</p>
     </div>
 
-    <p>run build.sh in case of any path</p>
+    <p>If you want to use your own path, run build.sh kinetic with the path argument.</p>
     <div class="section emphasis">
       <p>$ sh run.sh kinetic {SHARED_DIR_PATH}</p>
     </div>
-    <p>In case of ubuntu 14.04,change kinetic to indigo</p>
+    <p>Replace "kinetic" with "indigo" if you use Ubuntu 14.04.</p>
 
   </div> 
 
   
 </div>
 
-<!-- メインカラム終了 -->
+<!-- The main column ends here. -->
 
 
 
