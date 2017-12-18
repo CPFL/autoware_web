@@ -8,8 +8,8 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'welcome_page/index.html')
 
-def docker_install(request):
-    return render(request, 'welcome_page/docker.html')
+def docker_x86_install(request):
+    return render(request, 'welcome_page/docker_x86.html')
 
 def docker_px2_install(request):
     return render(request, 'welcome_page/docker_px2.html')
