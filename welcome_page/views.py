@@ -10,3 +10,6 @@ def index(request):
 
 def docker_install(request):
     return render(request, 'welcome_page/docker.html')
+
+def docker_px2_install(request):
+    return render(request, 'welcome_page/docker_px2.html')

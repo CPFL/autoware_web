@@ -6,4 +6,5 @@ app_name = 'autoware_web'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^docker/$', views.docker_install, name='docker'),
+    url(r'^docker_px2/$', views.docker_px2_install, name='docker_px2'),
 ]

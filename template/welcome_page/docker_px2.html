@@ -1,0 +1,158 @@
+{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
+
+<!-- メインカラム開始 -->
+<div id="main">
+
+  <div class="test2_section normal">
+
+    <h2>概要</h2>
+    <p>px2へdockerを使用しAutoware実行環境を作成する手順を紹介します</p>
+
+  </div>
+  
+  <div class="test2_section normal">
+
+    <h2>目次</h2>
+    <ul class="list">
+      <li>Install Docker</li>
+      <li>Autoware Setup</li>
+    </ul>
+
+  </div>
+
+  <div class="test2_section normal">
+
+    <h2>Install Docker</h2>
+
+    <div class="heading">
+      <h3>Install Docker</h3>
+    </div>
+    
+    <p>Docker本体のインストールを行う。ubuntu16.04のデフォルトのrepository設定ではdocker.ioを入手できないことがあるため以下手順に従ってインストールを行う</p>
+
+    <div class="section emphasis">
+      <p>$sudo apt-get install -y software-properties-common</p>
+      <p>$sudo apt-add-repository universe</p>
+      <p>$sudo apt-get update</p>
+      <p>$sudo apt-get install docker.io</p>
+      <p>$sudo apt-get update</p>
+    </div>
+
+
+    <div class="heading">
+      <h3>正しくインストールされたかの確認</h3>
+    </div>
+
+    <p>以下のコマンドを入力する</p>
+    <div class="section emphasis">
+      <p>$sudo docker info | grep "Docker Root Dir"</p>
+    </div>
+
+    <p>以下の表示があれば正しくインストールされている</p>      
+    <div class="section emphasis">
+      <p>Docker Root Dir: /var/lib/docker</p>
+    </div>
+  </div>
+
+    <div class="test2_section normal">
+        <h2>Autoware Setup</h2>
+
+
+    <div class="heading">
+      <h3>setup用のスクリプトを実行する</h3>
+    </div>
+    
+    <p>以下のスクリプトを実行</p>
+    
+    <pre class="prettyprint linenums">
+#!/bin/sh
+
+IMAGE_NAME=tiercr.azurecr.io/dpx2/autoware
+TAG=1.2.0
+CR_NOFOUND=$(docker inspect ${IMAGE_NAME}:${TAG} 2>/dev/stdout | grep No | wc -l)
+
+if ! type docker 2>/dev/null 1>/dev/null
+then
+ echo "Please install docker while referring to \"DOCKER INSTALLATION FOR DRIVE PX 2\""
+ exit 1
+fi
+
+if [ ! ${CR_NOFOUND} ];
+then
+ echo "${IMAGE_NAME}:${TAG} is exist."
+fi
+
+curl -L -o .temp.dpx2_autoware_image.tar "https://www.dropbox.com/s/qf38619ci7qawhe/dpx2_autoware_1.2.0.tar?dl=1"
+sudo docker load -i .temp.dpx2_autoware_image.tar
+rm .temp.dpx2_autoware_image.tar
+    </pre>
+
+    <p>実行場所は特に指定はない。curlコマンドなどがない場合は以下のようにapt-getでインストールを行う</p>
+    <div class="section emphasis">
+      <p>$ sudo apt-get install curl</p>
+    </div>
+
+
+    <div class="heading">
+      <h3>実行スクリプトを起動する</h3>
+    </div>
+
+    <p>以下のスクリプトを実行</p>
+    
+    <pre class="prettyprint linenums">
+#!/bin/bash
+
+if ! type docker 2>/dev/null 1>/dev/null
+then
+ echo "Please install docker while referring to \"DOCKER INSTALLATION FOR DRIVE PX 2\""
+ exit 1
+fi
+
+# For both AutoChauffeur(with dGPU) and AutoCruise(without dGPU)
+if [ -e "/dev/nvgpu-pci" ]; then
+        NV_DEV="--device /dev/nvidiactl --device /dev/nvmap"
+        NV_DGPU="--device /dev/nvgpu-pci"
+else
+	NV_DEV="--device /dev/nvmap"
+        NV_DGPU=""
+fi
+NV_IGPU=$(\ls /dev/nvhost* | xargs -I{} echo '--device {}')
+NV_LIBS="-v /usr/lib/libcuda.so.1:/usr/lib/libcuda.so.1 $(\ls /usr/lib/libnv* | xargs -I{} echo '-v {}:{}')"
+GL_LIBS="$(\ls /usr/lib/lib*GL* | xargs -I{} echo '-v {}:{}')"
+CUDA_DIR="-v /usr/local/cuda-8.0:/usr/local/cuda-8.0"
+#X_AUTH="/tmp/.docker.xauth"
+X_SOCK="/tmp/.X11-unix"
+X_ARG="--net=host -v ${X_SOCK}:${X_SOCK}"
+DISP_ARG="-e DISPLAY -e QT_X11_NO_MITSHM=1"
+SSD_MOUNT="$(\ls /media/nvidia | xargs -I{} echo '-v /media/nvidia/{}:/media/nvidia/{}')"
+DOCKER_ARGUMENTS="${NV_DEV} ${NV_IGPU} ${NV_DGPU} ${NV_LIBS} ${GL_LIBS} ${CUDA_DIR} ${X_ARG} ${DISP_ARG} ${SSD_MOUNT}"
+
+IMAGE_NAME=tiercr.azurecr.io/dpx2/autoware:1.2.0
+# allows x access for local:root
+xhost +local:root
+xhost +
+echo "docker run/ -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} xterm"
+docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} xterm
+        </pre>
+    <div class="heading">
+      <h3>Autowareのセットアップの確認</h3>
+    </div>
+            <p>実行スクリプト起動後xtermが起動する。current directoryにstart_autoware.shがあるので実行する</p>
+    <div class="section emphasis">
+      <p>$ ./start_autoware.sh</p>
+    </div>
+            <p>Autowareが起動すれば環境構築は完了</p>
+
+
+    </div>
+
+  
+</div>
+
+<!-- メインカラム終了 -->
+
+
+<script src="/static/js/prettify.js"></script>
+<script>prettyPrint();</script>
+
+{% endblock content %}
