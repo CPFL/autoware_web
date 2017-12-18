@@ -6,24 +6,11 @@
     </div>
     <div class="container">
       <div class="content-center brand">
-        <img class="n-logo" src="/static/img/top_autoware_logo2.png" alt="">
-        <h1 class="h1-seo">Open-source software for urban self-driving mobility</h1>
-
-        <a href="{% url 'autoware_web:docker' %}" class="square_btn">Quick Start</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="index-content">
-    <center>
-      <div class="container">
-        <h1>Autoware Toolchain</h1>
-        <p>Click me!</p>
-
+        <!-- <img class="n-logo" src="/static/img/top_autoware_logo2.png" alt=""> -->
         <nav class="menu">
           <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
           <label class="menu-open-button" for="menu-open">
-            <img alt="Brand" src="/static/img/autoware_logo_alpha.png" style="width: 65px;height: 65px;">
+            <img alt="Brand" src="/static/img/autoware_logo_alpha.png" style="width: auto;height: 65px;padding-bottom: 2px">
           </label>
 
           <a href="https://www.youtube.com/watch?v=EcRdoJATdzE" title="Autoware Movie" class="menu-item blue"> <i class="fa fa-film"></i> </a>
@@ -33,10 +20,19 @@
           <a href="https://www.automan.ai/" title="Automan" class="menu-item orange"> <i class="fa fa-user"></i> </a>
           <a href="https://maptools.tier4.jp/" title="MapTools" class="menu-item lightblue"> <i class="fa fa-map-o"></i> </a>
         </nav>
-      </div>
 
-    </center>
+        <div class="top-message">
+          <h1 class="h1-seo">We Love Open Source.</h1>
+
+          <a href="{% url 'autoware_web:docker' %}" class="square_btn">X86</a>
+          <a href="{% url 'autoware_web:docker' %}" class="square_btn">PX2</a>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- <div class="index-content">
+  </div> -->
 </div>
 
 {% endblock content %}
