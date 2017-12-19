@@ -1,18 +1,18 @@
-{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
+﻿{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
 
-<!-- メインカラム開始 -->
+<!-- The main column begins here. -->
 <div id="main">
 
   <div class="test2_section normal">
 
-    <h2>概要</h2>
-    <p>px2へdockerを使用しAutoware実行環境を作成する手順を紹介する</p>
+    <h2>Overview</h2>
+    <p>This website provides the instruction about how to install Autoware to NVIDIA DRIVE PX2 using Docker.</p>
 
   </div>
   
   <div class="test2_section normal">
 
-    <h2>目次</h2>
+    <h2>Outline</h2>
     <ul class="list">
       <li>Install Docker</li>
       <li>Autoware Setup</li>
@@ -25,10 +25,10 @@
     <h2>Install Docker</h2>
 
     <div class="heading">
-      <h3>Install Docker</h3>
+      <h3>Install Docker Package.</h3>
     </div>
     
-    <p>Docker本体のインストールを行う。ubuntu16.04のデフォルトのrepository設定ではdocker.ioを入手できないことがあるため以下手順に従ってインストールを行う</p>
+    <p>You first need to build the Docker environment. You may not access docker.io with the default configuration of Ubuntu 16.04, so try the following installation process.</p>
 
     <div class="section emphasis">
       <p>$sudo apt-get install -y software-properties-common</p>
@@ -40,15 +40,15 @@
 
 
     <div class="heading">
-      <h3>正しくインストールされたかの確認</h3>
+      <h3>Validate the installation succeeded.</h3>
     </div>
 
-    <p>以下のコマンドを入力する</p>
+    <p>Type the following commands.</p>
     <div class="section emphasis">
       <p>$sudo docker info | grep "Docker Root Dir"</p>
     </div>
 
-    <p>以下の表示があれば正しくインストールされている</p>      
+    <p>Everything should be fine if you find the following description.</p>      
     <div class="section emphasis">
       <p>Docker Root Dir: /var/lib/docker</p>
     </div>
@@ -59,10 +59,10 @@
 
 
     <div class="heading">
-      <h3>setup用のスクリプトを実行する</h3>
+      <h3>Run Setup Script.</h3>
     </div>
     
-    <p>以下のスクリプトをファイルに保存して実行。実行場所は任意</p>
+    <p>Save and run the following script.</p>
     
     <pre class="prettyprint linenums">
 #!/bin/sh
@@ -87,17 +87,17 @@ sudo docker load -i .temp.dpx2_autoware_image.tar
 rm .temp.dpx2_autoware_image.tar
     </pre>
 
-    <p>curlコマンドなどがない場合は以下のようにapt-getでインストールを行う</p>
+    <p>Use apt-get as follows if you cannot find the curl command.</p>
     <div class="section emphasis">
       <p>$ sudo apt-get install curl</p>
     </div>
 
 
     <div class="heading">
-      <h3>実行スクリプトを起動する</h3>
+      <h3>Run Installation Script.</h3>
     </div>
 
-    <p>以下のスクリプトをファイルに保存して実行</p>
+    <p>Save and run the following script.</p>
     
     <pre class="prettyprint linenums">
 #!/bin/bash
@@ -135,13 +135,13 @@ echo "docker run/ -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/hom
 docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} xterm
         </pre>
     <div class="heading">
-      <h3>Autowareの起動の確認</h3>
+      <h3>Check Autoware</h3>
     </div>
-            <p>実行スクリプト起動後xtermが起動する。current directoryにstart_autoware.shがあるので実行する</p>
+            <p>You should see xterm after running the installation script. Run start_autoware.sh that is located in the current directory.</p>
     <div class="section emphasis">
       <p>$ ./start_autoware.sh</p>
     </div>
-            <p>Autowareが起動すれば環境構築は完了</p>
+            <p>Autoware should be now running.</p>
 
 
     </div>
@@ -149,7 +149,7 @@ docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidi
   
 </div>
 
-<!-- メインカラム終了 -->
+<!-- The main column ends here. -->
 
 
 <script src="/static/js/prettify.js"></script>
