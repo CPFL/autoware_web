@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
+﻿{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
 
 <!-- The main column begins here. -->
 <div id="main">
@@ -6,7 +6,7 @@
   <div class="test2_section normal">
 
     <h2>Overview</h2>
-    <p>This website provides the instruction about how to install Autoware to your system using Docker.</p>
+    <p>This page provides the instruction on how to install Autoware to your system using Docker.</p>
 
   </div>
   
@@ -24,7 +24,7 @@
   <div class="test2_section normal">
 
     <h2>Install Docker</h2>
-    <p>You first need to build the Docker environment. If you cannot install Docker through the following process, please check <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/"><font color="blue">Docker's installation website</font></a>.</p>
+    <p>You first need to build the Docker environment. If the following process of Docker installation does not work for you, please check <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/"><font color="blue">Docker's installation website</font></a>.</p>
 
     <div class="heading">
       <h3>Uninstall the old version of Docker.</h3>
@@ -42,10 +42,10 @@
       <h3>Install Docker CE.</h3>
     </div>
 
-    <p>You may want to install Docker using the repository, though there are several other ways to install Docker.</p>
+    <p>This time you may want to install Docker using the repository, though there are several other ways to install Docker.</p>
 
     <div class="heading">
-      <h4>Set up the repository.</h4>
+      <h4>Setup Repository.</h4>
     </div>
 
     <p>Do update on apt-get.</p>      
@@ -133,11 +133,11 @@
   <div class="test2_section normal">
     <h2>Install Autoware Docker Image</h2>
 
-    <p>You can build the Autoware runtime environment using nvidia-docker.<br>Autowareの環境を構築する際、docker hubの設定をそのまま使用する場合と自分でDockerfileを変更して再コンパイルする場合があるのでそれぞれのセットアップ手順を紹介する</p>
+    <p>You can build the Autoware runtime environment using nvidia-docker. You may choose either to use the configuration of Docker Hub "as is" or to modify-then-recompile Dockerfile.</p>
 
 
     <div class="heading">
-      <h3>docker hubの設定をそのまま使用する場合</h3>
+      <h3>In case that you use Docker Hub "as is".</h3>
     </div>
     
     <p>Move to the docker directory in Autoware.</p>
@@ -145,7 +145,7 @@
       <p>$ cd Autoware/docker</p>
     </div>
 
-    <p>移動した先のrun.shの最後の一文を<font color="red">autoware-$1</font>から<font color="red">autoware/autoware:1.6.0-kinetic</font>へ変更する</p>
+    <p>Modify the last sentence of run.sh in that directory: <font color="red">autoware-$1</font> --> <font color="red">autoware/autoware:1.6.0-kinetic</font></p>
 
     <p>Run run.sh kinetic if you use Ubuntu 16.04, assuming that the default path is "/home/$USER/shared_dir".</p>
     <div class="section emphasis">
@@ -160,7 +160,7 @@
 
     
     <div class="heading">
-      <h3>Dockerfileを変更し再コンパイルする場合</h3>
+      <h3>In case that you modify-then-recompile Dockerfile.</h3>
     </div>
 
     <div class="heading">

@@ -6,7 +6,7 @@
   <div class="test2_section normal">
 
     <h2>Overview</h2>
-    <p>This website provides the instruction about how to install Autoware to NVIDIA DRIVE PX2 using Docker.</p>
+    <p>This page provides the instruction on how to install Autoware to NVIDIA DRIVE PX2 using Docker.</p>
 
   </div>
   
@@ -58,13 +58,131 @@
         <h2>Autoware Setup</h2>
 
 
+	<div class="heading">
+	  <h3>Nvidiaの画像認識ソフトのdriver worksを使用する場合.</h3>
+	</div>
+
     <div class="heading">
-      <h3>Run Setup Script.</h3>
+      <h4>Run Setup Script.</h4>
     </div>
     
     <p>Save and run the following script.</p>
     
     <pre class="prettyprint linenums">
+#!/bin/sh
+
+#################################################
+# Ensure ROOT user (UID == 0)
+#################################################
+if [ ${EUID} -ne 0 ]; then
+    echo "Execute script as ROOT user."
+    exit 1
+fi
+
+IMAGE_NAME=tiercr.azurecr.io/dpx2/autoware
+TAG=1.2.0-dw
+CR_NOFOUND=$(docker inspect ${IMAGE_NAME}:${TAG} 2>/dev/stdout | grep No | wc -l)
+
+if ! type docker 2>/dev/null 1>/dev/null
+then
+ echo "Please install docker while referring to \"DOCKER INSTALLATION FOR DRIVE PX 2\""
+ exit 1
+fi
+
+if [ ! ${CR_NOFOUND} ];
+then
+ echo "${IMAGE_NAME}:${TAG} is exist."
+fi
+
+curl -L -o .temp.dpx2_autoware_image.tar "https://www.dropbox.com/s/p9shbm9wnx2931v/dpx2_autoware_1.2.0-dw.tar?dl=1"
+sudo docker load .temp.dpx2_autoware_image.tar
+rm .temp.dpx2_autoware_image.tar      
+    </pre>
+
+    <p>Use apt-get as follows if you cannot find the curl command.</p>
+    <div class="section emphasis">
+      <p>$ sudo apt-get install curl</p>
+    </div>
+
+
+    <div class="heading">
+      <h4>Run Installation Script.</h4>
+    </div>
+
+    <p>Save and run the following script.</p>
+
+    
+    <pre class="prettyprint linenums">
+#!/bin/bash
+
+#################################################
+# Ensure ROOT user (UID == 0)
+#################################################
+if [ ${EUID} -ne 0 ]; then
+    echo "Execute script as ROOT user."
+    exit 1
+fi
+
+# For both AutoChauffeur(with dGPU) and AutoCruise(without dGPU)
+if [ -e "/dev/nvgpu-pci" ]; then
+        NV_DEV="--device /dev/nvidiactl --device /dev/nvmap"
+        NV_DGPU="--device /dev/nvgpu-pci"
+else
+	NV_DEV="--device /dev/nvmap"
+        NV_DGPU=""
+fi
+
+SENSOR_INIT_BIN=./gmsl_init
+
+NV_IGPU=$(\ls /dev/nvhost* | xargs -I{} echo '--device {}')
+NV_LIBS="-v /usr/lib/libcuda.so.1:/usr/lib/libcuda.so.1 $(\ls /usr/lib/libnv* | xargs -I{} echo '-v {}:{}') $(\ls /usr/lib/aarch64-linux-gnu/libnv* | xargs -I{} echo '-v {}:{}') $(\ls /usr/lib/aarch64-linux-gnu/libcudnn* | xargs -I{} echo '-v {}:{}')"
+CUDA_DIR="-v /usr/local/cuda-8.0:/usr/local/cuda-8.0"
+X_SOCK="/tmp/.X11-unix"
+X_ARG="--net=host -v ${X_SOCK}:${X_SOCK}"
+DISP_ARG="-e DISPLAY -e QT_X11_NO_MITSHM=1"
+DW_ARG="-v/usr/local/driveworks:/usr/local/driveworks -v/usr/local/driveworks-0.3:/usr/local/driveworks-0.3 -v/usr/lib/pkgconfig/driveworks.pc:/usr/lib/pkgconfig/driveworks.pc -v/etc/tacp:/etc/tacp -v/usr/lib/libtacp.so:/usr/lib/libtacp.so"
+
+DW_DEV="--device /dev/isc-dev.1.48 \
+        --device /dev/isc-dev.2.48 \
+ 	--device /dev/isc-dev.7.10 \
+        --device /dev/isc-dev.7.11 \
+        --device /dev/isc-dev.7.40 \
+        --device /dev/isc-dev.7.48 \
+        --device /dev/isc-mgr.1.e  \
+        --device /dev/isc-mgr.2.c  \
+        --device /dev/isc-mgr.7.a  \
+	--device /dev/i2c-7 \
+	--device /dev/i2c-8"
+
+SSD_MOUNT="$(\ls /media/nvidia | xargs -I{} echo '-v /media/nvidia/{}:/media/nvidia/{}')"
+DOCKER_ARGUMENTS="${NV_DEV} ${NV_IGPU} ${NV_DGPU} ${NV_LIBS} ${GL_LIBS} ${CUDA_DIR} ${X_ARG} ${DISP_ARG} ${SSD_MOUNT} ${DW_ARG} ${DW_DEV}"
+
+IMAGE_NAME=tiercr.azurecr.io/dpx2/autoware:1.2.0-dw
+
+# allows x access for local:root
+xhost +local:root
+xhost +
+./${SENSOR_INIT_BIN} &
+sleep 3
+kill -KILL $!
+echo "docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} bash"
+#docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} xterm
+docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} bash
+
+    </pre> 
+
+
+    <div class="heading">
+      <h3>Nvidiaの画像認識ソフトのdriver worksを使用しない場合.</h3>
+    </div>
+    
+    <div class="heading">
+      <h4>Run Setup Script.</h4>
+    </div>
+    
+    <p>Save and run the following script.</p>    
+
+        <pre class="prettyprint linenums">
 #!/bin/sh
 
 IMAGE_NAME=tiercr.azurecr.io/dpx2/autoware
@@ -91,14 +209,13 @@ rm .temp.dpx2_autoware_image.tar
     <div class="section emphasis">
       <p>$ sudo apt-get install curl</p>
     </div>
-
-
-    <div class="heading">
-      <h3>Run Installation Script.</h3>
+	
+   <div class="heading">
+      <h4>Run Installation Script.</h4>
     </div>
 
     <p>Save and run the following script.</p>
-    
+
     <pre class="prettyprint linenums">
 #!/bin/bash
 
@@ -133,7 +250,8 @@ xhost +local:root
 xhost +
 echo "docker run/ -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} xterm"
 docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidia/shared ${HOST_SHARE} ${WORKDIR} ${IMAGE_NAME} xterm
-        </pre>
+    </pre>
+
     <div class="heading">
       <h3>Check Autoware</h3>
     </div>
