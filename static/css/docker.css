@@ -12,8 +12,8 @@
     margin-bottom: 10pt;
     padding-top:20pt;
     padding-bottom:10pt;
-    width: 960pt; /* メインカラムの幅 */
-    /*overflow:hidden;*/
+    width: 80%; /* メインカラムの幅 */
+    overflow:hidden;
 }
 
 /* --- セクション（共通設定） --- */
@@ -27,6 +27,7 @@ margin: 0 0 1em; /* 見出しのマージン（上、左右、下） */
 padding: 5px 8px; /* 見出しのパディング（上下、左右） */
 background-color: #e0e0e0; /* 見出しの背景色 */
 font-size: 130%; /* 見出しの文字サイズ */
+word-break: break-all;
 }
 
 /* 段 */
@@ -42,6 +43,7 @@ border: 1px #c0c0c0 solid; /* セクションの境界線 */
 margin-bottom:20pt;
 margin-left:20pt;
 margin-right:20pt;
+word-break: break-all;
 }
  /* 見出し */
 #main div.emphasis h2 {
@@ -85,7 +87,7 @@ line-height: 130%;
 
 /* --- 見出しエリア --- */
 div.heading {
-width: 600px; /* 見出しエリアの幅 */
+width: 80%; /* 見出しエリアの幅 */
 margin-bottom: 1em;
 padding: 4px 0; /* 見出しエリアのパディング（上下、左右） */
 /* border-bottom: 1px #c0c0c0 solid; /\* 見出しエリアの下境界線 *\/ */
@@ -96,7 +98,7 @@ div.heading h3 {
 padding: 3px 3px 0 5px; /* 見出しのパディング（上右下左） */
 border-left: 5px #ff8000 solid; /* 見出しの左境界線 */
 font-size: 130%; /* 見出しの文字サイズ */
-line-height: 100%;
+line-height: normal;
 }
 
 /* --- 見出し2 --- */
@@ -104,7 +106,7 @@ div.heading h4 {
 padding: 3px 3px 0 5px; /* 見出しのパディング（上右下左） */
 border-left: 5px #00008b solid; /* 見出しの左境界線 */
 font-size: 110%; /* 見出しの文字サイズ */
-line-height: 100%;
+line-height: normal;
 }
 
 /* --- メインカラム定義　開始 --- */
