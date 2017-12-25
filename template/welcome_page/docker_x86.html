@@ -6,7 +6,7 @@
   <div class="test2_section normal">
 
     <h2>Overview</h2>
-    <p>This page provides the instruction on how to install Autoware to your system using Docker.</p>
+    <p>This page guides you to install and run Autoware on the Intel processor using Docker.</p>
 
   </div>
   
@@ -14,20 +14,20 @@
 
     <h2>Outline</h2>
     <ul class="list">
-      <li>Install Docker</li>
-      <li>Install NVIDIA Docker</li>
-      <li>Install Autoware Docker Image</li>
+      <li>Docker Setup</li>
+      <li>NVIDIA Docker Setup</li>
+      <li>Autoware Docker Setup</li>
     </ul>
 
   </div>
 
   <div class="test2_section normal">
 
-    <h2>Install Docker</h2>
-    <p>You first need to build the Docker environment. If the following process of Docker installation does not work for you, please check <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/"><font color="blue">Docker's installation website</font></a>.</p>
+    <h2>Docker Setup</h2>
+    <p>You first need to build the Docker environment. If the following installation process does not work for you, please check <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/"><font color="blue">Docker's installation website</font></a>.</p>
 
     <div class="heading">
-      <h3>Uninstall the old version of Docker.</h3>
+      <h3>Old Docker Cleanup</h3>
     </div>
 
     <div class="section emphasis">
@@ -36,16 +36,16 @@
 
     </div>
 
-    <p>You are ready to move on the next step if all packages related to Docker are removed.</p>
+    <p>You are ready to move on the next step if all Docker packages are removed.</p>
 
     <div class="heading">
-      <h3>Install Docker CE.</h3>
+      <h3>Docker CE Installation</h3>
     </div>
 
     <p>This time you may want to install Docker using the repository, though there are several other ways to install Docker.</p>
 
     <div class="heading">
-      <h4>Setup Repository.</h4>
+      <h4>Step 1: Repository Setup</h4>
     </div>
 
     <p>Do update on apt-get.</p>      
@@ -76,12 +76,15 @@
 
     <p>Install the repository.</p>      
     <div class="section emphasis">
-      <p>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</p>
+      <p>sudo add-apt-repository \</p>
+      <p>"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</p>
+      <p>$(lsb_release -cs) \</p>
+      <p>stable"</p>
     </div>
 
 
     <div class="heading">
-      <h4>Install Docker CE</h4>
+      <h4>Step 2: Docker CE Installation</h4>
     </div>
 
     <p>Update on apt-get.</p>      
@@ -101,7 +104,7 @@
   </div>
 
   <div class="test2_section normal">
-    <h2>Install NVIDIA Docker</h2>
+    <h2>NVIDIA Docker Setup</h2>
 
     <p>You need to install Docker Plugin provided by NVIDIA in order to access NVIDIA GPUs from Docker Container.</p>
     <br>
@@ -128,13 +131,13 @@
   </div>
 
   <div class="test2_section normal">
-    <h2>Install Autoware Docker Image</h2>
+    <h2>Autoware Docker Setup</h2>
 
     <p>You can build the Autoware runtime environment using nvidia-docker. You may choose either to use the configuration of Docker Hub "as is" or to modify-then-recompile Dockerfile.</p>
 
 
     <div class="heading">
-      <h3>In case that you use Docker Hub "as is".</h3>
+      <h3>Case 1: Using Docker Hub "As Is"</h3>
     </div>
     
     <p>Move to the docker directory in Autoware.</p>
@@ -144,66 +147,65 @@
 
     <p>Modify the last sentence of run.sh in that directory: <font color="red">autoware-$1</font> --> <font color="red">autoware/autoware:1.6.0-kinetic</font></p>
 
-<p>Run run.sh kinetic if you use Ubuntu 16.04, assuming that the default path is "/home/$USER/shared_dir".</p>
-<div class="section emphasis">
-  <p>$ sh run.sh kinetic</p>
-</div>
+    <p>Run run.sh kinetic if you use Ubuntu 16.04, assuming that the default path is "/home/$USER/shared_dir".</p>
+    <div class="section emphasis">
+      <p>$ sh run.sh kinetic</p>
+    </div>
 
-<p>If you want to use your own path, run build.sh kinetic with the path argument.</p>
-<div class="section emphasis">
-  <p>$ sh run.sh kinetic {SHARED_DIR_PATH}</p>
-</div>
-<p>Replace "kinetic" with "indigo" if you use Ubuntu 14.04.</p>
+    <p>If you want to use your own path, run build.sh kinetic with the path argument.</p>
+    <div class="section emphasis">
+      <p>$ sh run.sh kinetic {SHARED_DIR_PATH}</p>
+    </div>
+    <p>Replace "kinetic" with "indigo" if you use Ubuntu 14.04.</p>
 
+    
+    <div class="heading">
+      <h3>Case 2: Using modify-then-recompile Dockerfile</h3>
+    </div>
 
-<div class="heading">
-  <h3>In case that you modify-then-recompile Dockerfile.</h3>
-</div>
+    <div class="heading">
+      <h4>Step 1: Autoware Docker Build</h4>
+    </div>
+    
+    <p>Move to the docker directory in Autoware.</p>
+    <div class="section emphasis">
+      <p>$ cd Autoware/docker</p>
+    </div>
 
-<div class="heading">
-  <h4>How to build Autoware Docker.</h4>
-</div>
+    <p>Run build.sh kinetic if you use Ubuntu 16.04.</p>
+    <div class="section emphasis">
+      <p>$ sh build.sh kinetic</p>
+    </div>
 
-<p>Move to the docker directory in Autoware.</p>
-<div class="section emphasis">
-  <p>$ cd Autoware/docker</p>
-</div>
+    <p>Otherwise, run build.sh indigo for Ubuntu 14.04. We do not support other versions of Ubuntu at this moment.</p>
+    <div class="section emphasis">
+      <p>$ sh build.sh indigo</p>
+    </div>
 
-<p>Run build.sh kinetic if you use Ubuntu 16.04.</p>
-<div class="section emphasis">
-  <p>$ sh build.sh kinetic</p>
-</div>
-
-<p>Otherwise, run build.sh indigo for Ubuntu 14.04. We do not support other versions of Ubuntu at this moment.</p>
-<div class="section emphasis">
-  <p>$ sh build.sh indigo</p>
-</div>
-
-<div class="heading">
-  <h4>How to run Autoware Docker.</h4>
-</div>
-
-
-<p>Run run.sh kinetic if you use Ubuntu 16.04, assuming that the default path is "/home/$USER/shared_dir".</p>
-<div class="section emphasis">
-  <p>$ sh run.sh kinetic</p>
-</div>
-
-<p>If you want to use your own path, run build.sh kinetic with the path argument.</p>
-<div class="section emphasis">
-  <p>$ sh run.sh kinetic {SHARED_DIR_PATH}</p>
-</div>
-<p>Replace "kinetic" with "indigo" if you use Ubuntu 14.04.</p>
-
-</div> 
+    <div class="heading">
+      <h4>Step 2: Autoware Docker Run</h4>
+    </div>
 
 
+    <p>Run run.sh kinetic if you use Ubuntu 16.04, assuming that the default path is "/home/$USER/shared_dir".</p>
+    <div class="section emphasis">
+      <p>$ sh run.sh kinetic</p>
+    </div>
+
+    <p>If you want to use your own path, run build.sh kinetic with the path argument.</p>
+    <div class="section emphasis">
+      <p>$ sh run.sh kinetic {SHARED_DIR_PATH}</p>
+    </div>
+    <p>Replace "kinetic" with "indigo" if you use Ubuntu 14.04.</p>
+
+  </div> 
+
+  
 </div>
 
 <!-- The main column ends here. -->
 
 <script src="/static/js/prettify.js"></script>
 <script>prettyPrint();</script>
-
 
 {% endblock content %}

@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
+{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
 
 <!-- The main column begins here. -->
 <div id="main">
@@ -6,7 +6,7 @@
   <div class="test2_section normal">
 
     <h2>Overview</h2>
-    <p>This page provides the instruction on how to install Autoware to NVIDIA DRIVE PX2 using Docker.</p>
+    <p>This page guides you to install and run Autoware on the NVIDIA DRIVE PX2 platform using Docker.</p>
 
   </div>
   
@@ -14,7 +14,7 @@
 
     <h2>Outline</h2>
     <ul class="list">
-      <li>Install Docker</li>
+      <li>Docker Setup</li>
       <li>Autoware Setup</li>
     </ul>
 
@@ -22,10 +22,10 @@
 
   <div class="test2_section normal">
 
-    <h2>Install Docker</h2>
+    <h2>Docker Setup</h2>
 
     <div class="heading">
-      <h3>Install Docker Package.</h3>
+      <h3>Docker Package Installation</h3>
     </div>
     
     <p>You first need to build the Docker environment. You may not access docker.io with the default configuration of Ubuntu 16.04, so try the following installation process.</p>
@@ -40,7 +40,7 @@
 
 
     <div class="heading">
-      <h3>Validate the installation succeeded.</h3>
+      <h3>Docker Package Test</h3>
     </div>
 
     <p>Type the following commands.</p>
@@ -48,7 +48,7 @@
       <p>$sudo docker info | grep "Docker Root Dir"</p>
     </div>
 
-    <p>Everything should be fine if you find the following description.</p>      
+    <p>Everything should be ready if you find the following description.</p>      
     <div class="section emphasis">
       <p>Docker Root Dir: /var/lib/docker</p>
     </div>
@@ -59,11 +59,11 @@
 
 
 	<div class="heading">
-	  <h3>Nvidiaの画像認識ソフトのdriver worksを使用する場合.</h3>
+	  <h3>Case 1: Autoware with NVIDIA DriveWorks</h3>
 	</div>
 
     <div class="heading">
-      <h4>Run Setup Script.</h4>
+      <h4>Step 1: Run Setup Script.</h4>
     </div>
     
     <p>Save and run the following script.</p>
@@ -106,7 +106,7 @@ rm .temp.dpx2_autoware_image.tar
 
 
     <div class="heading">
-      <h4>Run Installation Script.</h4>
+      <h4>Step 2: Run Installation Script.</h4>
     </div>
 
     <p>Save and run the following script.</p>
@@ -173,11 +173,11 @@ docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidi
 
 
     <div class="heading">
-      <h3>Nvidiaの画像認識ソフトのdriver worksを使用しない場合.</h3>
+      <h3>Case 2: Autoware without NVIDIA DriveWorks</h3>
     </div>
     
     <div class="heading">
-      <h4>Run Setup Script.</h4>
+      <h4>Step 1: Run Setup Script.</h4>
     </div>
     
     <p>Save and run the following script.</p>    
@@ -211,7 +211,7 @@ rm .temp.dpx2_autoware_image.tar
     </div>
 	
    <div class="heading">
-      <h4>Run Installation Script.</h4>
+      <h4>Step 2: Run Installation Script.</h4>
     </div>
 
     <p>Save and run the following script.</p>
@@ -253,13 +253,13 @@ docker run -it --rm --privileged ${DOCKER_ARGUMENTS} -v /home/nvidia:/home/nvidi
     </pre>
 
     <div class="heading">
-      <h3>Check Autoware</h3>
+      <h3>Autoware Test</h3>
     </div>
-            <p>You should see xterm after running the installation script. Run start_autoware.sh that is located in the current directory.</p>
+            <p>You should face xterm after running the installation script. Please finally run start_autoware.sh that is located in the current directory.</p>
     <div class="section emphasis">
       <p>$ ./start_autoware.sh</p>
     </div>
-            <p>Autoware should be now running.</p>
+            <p>Autoware should be now running successfully.</p>
 
 
     </div>
