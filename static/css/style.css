@@ -10,7 +10,9 @@ h3 {
 }
 
 .h5 {
-  margin-bottom: -10px;
+  margin-bottom: -15px;
+  font-size: large;
+  color: #00a3e0;
 }
 
 .container ul li {
@@ -30,6 +32,7 @@ h3 {
 .top-notification {
   margin-bottom: -20px;
   margin-left: 10px;
+  color: #00a3e0;
 }
 
 .top-message {

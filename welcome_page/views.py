@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -12,4 +12,5 @@ def docker_x86_install(request):
     return render(request, 'welcome_page/docker_x86.html')
 
 def docker_px2_install(request):
-    return render(request, 'welcome_page/docker_px2.html')
+    # return render(request, 'welcome_page/docker_px2.html')
+    return redirect("/")
