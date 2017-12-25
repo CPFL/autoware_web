@@ -12,7 +12,6 @@ h3 {
 .h5 {
   margin-bottom: -10px;
   font-size: large;
-  color: #00a3e0;
 }
 
 .container ul li {
@@ -32,7 +31,6 @@ h3 {
 .top-notification {
   margin-bottom: -25px;
   margin-left: 10px;
-  color: #00a3e0;
 }
 
 .top-message {
@@ -64,3 +62,25 @@ h3 {
 .t4_color {
   color: #00a3e0;
 }
+
+.check_area {
+  padding-left: 20px;
+}
+.check_li {
+  margin-left: 6vw;
+}
+/* List */
+/*ul li {
+  position: relative;
+  padding-left: 20px;
+}
+ul li::after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: .65em;
+  left: 100em;
+  width: 8px;
+  height: 1px;
+  background-color: #666;
+}*/
