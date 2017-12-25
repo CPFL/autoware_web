@@ -5809,7 +5809,7 @@ Created using IcoMoon - icomoon.io
 [data-background-color] h4,
 [data-background-color] h5,
 [data-background-color] h6,
-[data-background-color] a:not(.btn):not(.dropdown-item),
+/*[data-background-color] a:not(.btn):not(.dropdown-item),*/
 [data-background-color] .icons-container i {
     color: #FFFFFF;
 }

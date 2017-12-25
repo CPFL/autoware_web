@@ -9,6 +9,10 @@ h3 {
   font-weight: 300;
 }
 
+.h5 {
+  margin-bottom: -10px;
+}
+
 .container ul li {
   text-align: left;
   line-height: 1.5;
@@ -21,6 +25,11 @@ h3 {
 
 .index-content {
   margin-top: 1vw;
+}
+
+.top-notification {
+  margin-bottom: -20px;
+  margin-left: 10px;
 }
 
 .top-message {
@@ -47,4 +56,8 @@ h3 {
 .square_btn:hover {
   background: #00a3e0;
   color: #FFF;
+}
+
+.t4_color {
+  color: #00a3e0;
 }
