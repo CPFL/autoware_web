@@ -63,24 +63,11 @@ h3 {
   color: #00a3e0;
 }
 
-.check_area {
-  padding-left: 20px;
+.check_area p {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .check_li {
   margin-left: 6vw;
 }
-/* List */
-/*ul li {
-  position: relative;
-  padding-left: 20px;
-}
-ul li::after {
-  display: block;
-  content: '';
-  position: absolute;
-  top: .65em;
-  left: 100em;
-  width: 8px;
-  height: 1px;
-  background-color: #666;
-}*/
