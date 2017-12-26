@@ -8,6 +8,9 @@ from django.shortcuts import render, redirect
 def index(request):
     return render(request, 'welcome_page/index.html')
 
+def development(request):
+    return render(request, 'welcome_page/development.html')
+
 def docker_x86_install(request):
     return render(request, 'welcome_page/docker_x86.html')
 

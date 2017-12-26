@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^$', views.index, name='logout'),
     url(r'^docker_x86/$', views.docker_x86_install, name='docker_x86'),
     url(r'^docker_px2/$', views.docker_px2_install, name='docker_px2'),
+    url(r'^development/$', views.development, name='development'),
 ]

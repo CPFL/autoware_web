@@ -71,3 +71,36 @@ h3 {
 .check_li {
   margin-left: 6vw;
 }
+
+/* Button */
+.square_btn35{
+    position: relative;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #000;
+    transition: .4s;
+}
+.square_btn35:hover {
+    color:#00a3e0;
+}
+.square_btn35:before,.square_btn35:after{
+  position: absolute;
+  top: 0;
+  content:'';
+  width: 8px;
+  height: 100%;
+  display: inline-block;
+}
+.square_btn35:before{
+  border-left: solid 1px #00a3e0;
+  border-top: solid 1px #00a3e0;
+  border-bottom: solid 1px #00a3e0;
+  left: 0;
+}
+.square_btn35:after{
+  content: '';
+  border-top: solid 1px #00a3e0;
+  border-right: solid 1px #00a3e0;
+  border-bottom: solid 1px #00a3e0;
+  right: 0;
+}

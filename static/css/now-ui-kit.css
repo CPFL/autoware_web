@@ -2827,7 +2827,7 @@ textarea.form-control:active {
 .progress-container .progress-badge {
     color: #888;
     font-size: 0.8571em;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .progress-container .progress {
@@ -2935,7 +2935,7 @@ textarea.form-control:active {
 .badge {
     border-radius: 8px;
     padding: 4px 8px;
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 0.7142em;
     line-height: 12px;
     background-color: transparent;
@@ -3000,7 +3000,7 @@ textarea.form-control:active {
     color: #2c2c2c;
     cursor: pointer;
     font-size: 14px;
-    text-transform: uppercase;
+    text-transform: none;
     background: transparent;
 }
 
@@ -3136,7 +3136,7 @@ h1,
 h1 small,
 .h1 small {
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: none;
     opacity: .8;
 }
 
@@ -3179,7 +3179,7 @@ h6,
 .h6 {
     font-size: 1em;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 p {
@@ -3196,7 +3196,7 @@ p.description {
 }
 
 .title.title-up {
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .title.title-up a {
@@ -3216,7 +3216,7 @@ p.description {
 }
 
 .category {
-    text-transform: uppercase;
+    text-transform: none;
     font-weight: 700;
     color: #9A9A9A;
 }
@@ -3256,7 +3256,7 @@ p.description {
 .blockquote small {
     color: #888;
     font-size: 0.8571em;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .blockquote.blockquote-primary {
@@ -3614,7 +3614,7 @@ body {
 }
 
 .navbar .navbar-nav .nav-link:not(.btn) {
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 0.7142em;
     padding: 0.5rem 0.7rem;
     line-height: 1.625rem;
@@ -3667,7 +3667,7 @@ body {
 }
 
 .navbar .navbar-brand {
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 0.8571em;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -3810,7 +3810,7 @@ body {
 .dropdown-menu .dropdown-header:not([href]):not([tabindex]) {
     color: rgba(182, 182, 182, 0.6);
     font-size: 0.7142em;
-    text-transform: uppercase;
+    text-transform: none;
     font-weight: 700;
 }
 
@@ -4023,7 +4023,7 @@ body {
 }
 
 .alert strong {
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 12px;
 }
 
@@ -4908,7 +4908,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-mini .modal-footer button {
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .modal.modal-mini .modal-footer button:first-child {
@@ -5128,7 +5128,7 @@ Created using IcoMoon - icomoon.io
     color: inherit;
     padding: 0.5rem;
     font-size: 0.8571em;
-    text-transform: uppercase;
+    text-transform: none;
     text-decoration: none;
 }
 
