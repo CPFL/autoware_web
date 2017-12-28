@@ -35,6 +35,12 @@ h3 {
   padding: 0.5em 0;
 }
 
+.top-cross-img {
+  width: 70px;
+  margin-top: -10px;
+  margin-bottom: -20px;
+}
+
 .release {
   margin-top: 200px;
 }
