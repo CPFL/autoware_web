@@ -11,6 +11,9 @@ def index(request):
 def development(request):
     return render(request, 'welcome_page/development.html')
 
+def development2(request):
+    return render(request, 'welcome_page/development2.html')
+
 def docker_x86_install(request):
     return render(request, 'welcome_page/docker_x86.html')
 

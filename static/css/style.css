@@ -9,6 +9,16 @@ h3 {
   font-weight: 300;
 }
 
+.develop {
+    margin-top:80pt;
+    background-color: white;
+    color: black;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5pt 5pt 5pt 5pt;
+}
+
 .h5-top {
   margin-top: 50px;
   margin-bottom: -10px;
