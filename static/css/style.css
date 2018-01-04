@@ -1,5 +1,10 @@
-/* GENERAL */
+/* FONT */
+@font-face {
+  font-family: 'DockerFont';
+  src: url("/static/fonts/MontserratSubrayada-Regular.ttf");
+}
 
+/* GENERAL */
 body {
   background-color: #000;
   color: #FFF;
@@ -23,6 +28,7 @@ h3 {
   margin-top: 50px;
   margin-bottom: -1vw;
   font-size: 1.7em;
+  font-family:'DockerFont';
 }
 
 .h2-top {
