@@ -22,7 +22,7 @@ h3 {
 .h5-top {
   margin-top: 50px;
   margin-bottom: -1vw;
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 
 .h2-top {
@@ -73,6 +73,7 @@ h3 {
   transition: .4s;
   font-size: x-large;
   margin-top: 1vw;
+  min-width: 186px
 }
 
 .square_btn:hover {
