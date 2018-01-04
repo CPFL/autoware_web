@@ -35,6 +35,10 @@ h3 {
   margin: -10px;
 }
 
+.h4-bottom {
+  font-size: 1.5em;
+}
+
 .container ul li {
   text-align: left;
   line-height: 1.5;
