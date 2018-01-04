@@ -18,5 +18,4 @@ def docker_x86_install(request):
     return render(request, 'welcome_page/docker_x86.html')
 
 def docker_px2_install(request):
-    # return render(request, 'welcome_page/docker_px2.html')
-    return redirect("/")
+    return render(request, 'welcome_page/docker_px2_tier4.html')

@@ -101,6 +101,7 @@ h3 {
     color: #000;
     transition: .4s;
     min-width: 118px;
+    white-space: nowrap;
 }
 .square_btn35:hover {
     color:#00a3e0;
