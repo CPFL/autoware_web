@@ -3615,7 +3615,7 @@ body {
 
 .navbar .navbar-nav .nav-link:not(.btn) {
     text-transform: none;
-    font-size: 0.7142em;
+    font-size: 1.2em;
     padding: 0.5rem 0.7rem;
     line-height: 1.625rem;
 }
