@@ -138,3 +138,8 @@ h3 {
   border-bottom: solid 1px #00a3e0;
   right: 0;
 }
+
+a:link { color: #0000ff; }
+a:visited { color: #000080; }
+a:hover { color: #ff0000; }
+a:active { color: #ff8000; }
