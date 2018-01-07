@@ -1,0 +1,124 @@
+{% extends "base.html" %} {% block title %}Index{% endblock title %} {% block content %}
+
+<!-- The main column begins here. -->
+<div id="main">
+
+  <div class="test2_section normal">
+
+    <h2>Overview</h2>
+    <p>This page guides you to install and run Autoware on the NVIDIA DRIVE PX2 platform using Docker. Note that DRIVE PX2 requires you to be a licensee of NVIDIA DevZone. To complete the installation process introduced below, please contact Autoware Developers Group at <a href="mailto:autoware@googlegroups.com?subject=DRIVE PX2 DOCKER" class="t4_color">autoware@googlegroups.com</a>, and you will get more information on Autoware Docker for DRIVE PX2.</p>
+
+  </div>
+
+  <div class="test2_section normal">
+
+    <h2>Outline</h2>
+    <ul class="list">
+      <li>Docker Setup</li>
+      <li>Autoware Setup</li>
+    </ul>
+
+  </div>
+
+  <div class="test2_section normal">
+
+    <h2>Docker Setup</h2>
+
+    <div class="heading">
+      <h3>Docker Package Installation</h3>
+    </div>
+
+    <p>You first need to build the Docker environment. You may not access docker.io with the default configuration of Ubuntu 16.04, so try the following installation process.</p>
+
+    <div class="section emphasis">
+      <p>$sudo apt-get install -y software-properties-common</p>
+      <p>$sudo apt-add-repository universe</p>
+      <p>$sudo apt-get update</p>
+      <p>$sudo apt-get install docker.io</p>
+      <p>$sudo apt-get update</p>
+    </div>
+
+
+    <div class="heading">
+      <h3>Docker Package Test</h3>
+    </div>
+
+    <p>Type the following commands.</p>
+    <div class="section emphasis">
+      <p>$sudo docker info | grep "Docker Root Dir"</p>
+    </div>
+
+    <p>Everything should be ready if you find the following description.</p>
+    <div class="section emphasis">
+      <p>Docker Root Dir: /var/lib/docker</p>
+    </div>
+  </div>
+
+  <div class="test2_section normal">
+    <h2>Autoware Setup</h2>
+
+    <p>Please first contact Autoware Developers Group at <a href="mailto:autoware@googlegroups.com?subject=DRIVE PX2 DOCKER" class="t4_color">autoware@googlegroups.com</a> to get the script files for your favorite configuration (see Case 1 and Case 2 below).</p>
+
+    <div class="heading">
+      <h3>Case 1: Autoware with NVIDIA DriveWorks</h3>
+    </div>
+
+    <div class="heading">
+      <h4>Step 1: Run Setup Script.</h4>
+    </div>
+
+    <p>Run setup_with_driveworks.sh that you obtained.</p>
+
+    <p>Use apt-get as follows if you cannot find the curl command.</p>
+    <div class="section emphasis">
+      <p>$ sudo apt-get install curl</p>
+    </div>
+
+
+    <div class="heading">
+      <h4>Step 2: Run Installation Script.</h4>
+    </div>
+
+    <p>Run install_with_driveworks.sh that you obtained.</p>
+
+    <div class="heading">
+      <h3>Case 2: Autoware without NVIDIA DriveWorks</h3>
+    </div>
+
+    <div class="heading">
+      <h4>Step 1: Run Setup Script.</h4>
+    </div>
+
+    <p>Run setup_without_driveworks.sh that you obtained.</p>
+
+    <p>Use apt-get as follows if you cannot find the curl command.</p>
+    <div class="section emphasis">
+      <p>$ sudo apt-get install curl</p>
+    </div>
+
+    <div class="heading">
+      <h4>Step 2: Run Installation Script.</h4>
+    </div>
+
+    <p>Run install_without_driveworks.sh that you obtained.</p>
+
+    <div class="heading">
+      <h3>Autoware Test</h3>
+    </div>
+    <p>You should face xterm after running the installation script. Please finally run start_autoware.sh that is located in the current directory.</p>
+    <div class="section emphasis">
+      <p>$ ./start_autoware.sh</p>
+    </div>
+    <p>Autoware should be now running successfully.</p>
+
+  </div>
+
+</div>
+
+<!-- The main column ends here. -->
+
+
+<script src="/static/js/prettify.js"></script>
+<script>prettyPrint();</script>
+
+{% endblock content %}

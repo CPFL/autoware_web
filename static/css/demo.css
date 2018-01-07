@@ -433,9 +433,10 @@
 }
 
 .brand .h1-seo {
-    font-size: 2em;
+    font-size: 1.8em;
     margin-top: 10px;
     margin-bottom: 10px;
+    white-space: nowrap;
     /*text-transform: uppercase;*/
     /*font-weight: 300;*/
 }

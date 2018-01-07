@@ -1,5 +1,10 @@
-/* GENERAL */
+/* FONT */
+@font-face {
+  font-family: 'DockerFont';
+  src: url("/static/fonts/Montserrat-SemiBold.otf");
+}
 
+/* GENERAL */
 body {
   background-color: #000;
   color: #FFF;
@@ -22,17 +27,28 @@ h3 {
 .h5-top {
   margin-top: 50px;
   margin-bottom: -1vw;
-  font-size: large;
+  font-size: 1.7em;
+  font-family:'DockerFont';
 }
 
 .h2-top {
   margin: -10px;
 }
 
+.h4-bottom {
+  font-size: 1.5em;
+}
+
 .container ul li {
   text-align: left;
   line-height: 1.5;
   padding: 0.5em 0;
+}
+
+.top-cross-img {
+  width: 70px;
+  margin-top: -10px;
+  margin-bottom: -20px;
 }
 
 .release {
@@ -67,6 +83,7 @@ h3 {
   transition: .4s;
   font-size: x-large;
   margin-top: 1vw;
+  min-width: 186px
 }
 
 .square_btn:hover {
@@ -94,6 +111,8 @@ h3 {
     text-decoration: none;
     color: #000;
     transition: .4s;
+    min-width: 118px;
+    white-space: nowrap;
 }
 .square_btn35:hover {
     color:#00a3e0;
