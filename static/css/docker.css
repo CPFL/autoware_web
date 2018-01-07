@@ -37,6 +37,12 @@
     line-height: 160%; /* 行の高さ */
 }
 
+#main div.normal a:link { color: #0000ff; }
+#main div.normal a:visited { color: #000080; }
+#main div.normal a:hover { color: #ff0000; }
+#main div.normal a:active { color: #ff8000; }    
+
+
 /* --- 強調セクション --- */
 #main div.emphasis {
     padding: 1.1em 15pt 0; /* セクションのパディング（上、左右、下） */
