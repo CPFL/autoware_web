@@ -15,7 +15,9 @@ def development2(request):
     return render(request, 'welcome_page/development2.html')
 
 def docker_x86_install(request):
-    return render(request, 'welcome_page/docker_x86.html')
+    return redirect('https://github.com/CPFL/Autoware/wiki/Installation-by-Docker:-Generic-x86')
+    # return render(request, 'welcome_page/docker_x86.html')
 
 def docker_px2_install(request):
-    return render(request, 'welcome_page/docker_px2_tier4.html')
+    # return render(request, 'welcome_page/docker_px2_tier4.html')
+    return redirect('https://github.com/CPFL/Autoware/wiki/Installation-by-Docker:-DRIVE-PX2')

@@ -28,7 +28,7 @@ h3 {
   margin-top: 50px;
   margin-bottom: -1vw;
   font-size: 1.7em;
-  font-family:'DockerFont';
+  /* font-family:'DockerFont'; */
 }
 
 .h2-top {
@@ -138,4 +138,3 @@ h3 {
   border-bottom: solid 1px #00a3e0;
   right: 0;
 }
-
