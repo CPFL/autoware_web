@@ -8,6 +8,12 @@ from django.shortcuts import render, redirect
 def index(request):
     return render(request, 'welcome_page/index.html')
 
+#def development(request):
+#    return render(request, 'welcome_page/development.html')
+
+def join(request):
+    return render(request, 'welcome_page/join.html')
+
 def development(request):
     return render(request, 'welcome_page/development.html')
 

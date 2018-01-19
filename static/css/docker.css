@@ -64,6 +64,28 @@
     line-height: 150%; /* 行の高さ */
 }
 
+/* マウスオーバー時にテキストの色を変えて斜めにする*/
+#main div.text_change {
+    color: #333;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-top:50pt;
+    margin-bottom:50pt;
+}
+
+#main div.text_change:hover {
+    color: #FFA500;
+    font-style:oblique;
+    opacity: 0.80;
+    filter:alpha(opacity=50);
+    -ms-filter: "alpha( opacity=50 )";
+    -moz-opacity:0.50;
+}
+
+
 /* --- リストエリア --- */
 ul.list {
     margin: 0;
