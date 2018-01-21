@@ -81,8 +81,8 @@ h3 {
   border: solid 2px #FFF;
   border-radius: 3px;
   transition: .4s;
-  font-size: x-large;
-  margin-top: 1vw;
+  font-size: medium;
+  margin-top: 2vw;
   min-width: 186px
 }
 
