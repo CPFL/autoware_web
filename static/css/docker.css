@@ -72,8 +72,10 @@
     -o-transition: all 0.3s ease;
     transition: all  0.3s ease;
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.3vw;
     margin-top:50pt;
     margin-bottom:50pt;
+    word-break: normal;
 }
 
 #main div.text_change:hover {
