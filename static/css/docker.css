@@ -87,9 +87,16 @@
     -moz-opacity:0.50;
 }
 
-#main div.text_setting {
+#main div.text_setting_left{
 	margin-bottom: auto;
     margin-top: auto;
+    text-align: left;
+}
+
+#main div.text_setting_right{
+	margin-bottom: auto;
+    margin-top: auto;
+    text-align: right;
 }
 
 /* --- リストエリア --- */
