@@ -76,6 +76,8 @@ body{
 
 #join_page{
 	width:80%;
+	height: auto;
+	overflow: hidden;
 	margin:100px auto;
     background: #000000;
 	color:#FFFFFF;
@@ -83,11 +85,14 @@ body{
 }
 
 #join_page h2{
-	font-size: 18px;
+	font-size: 20px;
 	margin:18px  auto;
 }
+#join_page p{
+	font-size: 14px;
+}
 
-#join_page div.row.text_change{
+#join_page div.stylerow.text_change{
 	width:auto;
 	display:inline-block;
 	float: left;
@@ -102,13 +107,13 @@ body{
 	box-orient: vertical;
 	background: black;
 }
-#join_page div.row.text_change:hover{
+#join_page div.stylerow.text_change:hover{
 	background:#FFFFFF;
 	color:#4365EB;
 	transition:all 300ms 0s ease-out;
 }
 
-#join_page div.col-6.gallery{
+#join_page div.stylecol-6.gallery{
 	width:100%;
 	float:none;
 	text-align:center;
@@ -119,24 +124,24 @@ body{
 	display: block;
 }
 
-#join_page div.col-6.gallery.ordinal{
+#join_page div.stylecol-6.gallery.ordinal{
 	width:100%;
 	float:left;
 	text-align:center;
-	-webkit-box-ordinal-group:1; /* for so old webkit browser */
+	-webkit-box-ordinal-group:1; /* for so old webkit bstylerowser */
 	-ms-flex-order:1; /*for IE10*/
-	-webkit-order:1; /* for old webkit browser */
+	-webkit-order:1; /* for old webkit bstylerowser */
 	order:1;
 }
-#join_page div.col-6.gallery.text_setting_right{
+#join_page div.stylecol-6.gallery.text_setting_right{
 	text-align:left;
 	font-size:10px;
-	-webkit-box-ordinal-group:2; /* for so old webkit browser */
+	-webkit-box-ordinal-group:2; /* for so old webkit bstylerowser */
 	-ms-flex-order:2; /*for IE10*/
-	-webkit-order:2; /* for old webkit browser */
+	-webkit-order:2; /* for old webkit bstylerowser */
 	order:2;
 }
-#join_page div.col-6.gallery.text_setting_left{
+#join_page div.stylecol-6.gallery.text_setting_left{
 	text-align:left;
 	font-size:10px;
 }
@@ -146,12 +151,13 @@ body{
 	height:auto;
 	margin:5% auto;
 	position:relative;
-	
+
 }
 #join_page dl.information{
 	margin:5%;
 	width:auto;
 	line-height:1.8em;
+	font-size: 12px;
 }
 #join_page dt{
   float:left;
@@ -162,7 +168,7 @@ body{
   float:left;
   width:auto;
 }
-	
+
 }
 
 
@@ -195,6 +201,8 @@ body{
 
 #join_page{
 	width:80%;
+	height: auto;
+	overflow: hidden;
 	margin:100px auto;
     background: #000000;
 	color:#FFFFFF;
@@ -202,33 +210,37 @@ body{
 }
 
 #join_page h2{
-	font-size: 20px;
+	font-size: 28px;
 	margin:20px  auto;
 }
 
-#join_page div.row.text_change{
-	width:auto;
+#join_page p{
+	font-size: 18px;
+}
+
+#join_page div.stylerow.text_change{
+	width:100%;
 	display:inline-block;
 	float: left;
 	height:auto;
 	margin: 50px auto;
 	padding-bottom: 20px;
 }
-#join_page div.row.text_change:hover{
+#join_page div.stylerow.text_change:hover{
 	background:#FFFFFF;
 	color:#4365EB;
 	transition:all 300ms 0s ease-out;
 }
-#join_page div.col-6.gallery{
+#join_page div.stylecol-6.gallery{
 	width:50%;
 	float:left;
 	text-align:center;
 }
-#join_page div.col-6.gallery.text_setting_right{
+#join_page div.stylecol-6.gallery.text_setting_right{
 	text-align:left;
 	font-size:13px;
 }
-#join_page div.col-6.gallery.text_setting_left{
+#join_page div.stylecol-6.gallery.text_setting_left{
 	text-align:left;
 	font-size:13px;
 }
@@ -245,15 +257,16 @@ body{
 	margin:5%;
 	width:100%;
 	line-height:1.8em;
+	font-size: 16px;
 }
 #join_page dt{
   float:left;
   clear:left;
-  width:60px;
+  width:80px;
 }
 #join_page dd {
   float:left;
-  width:240px;
+  width:260px;
 }
 
 
