@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^sample/sample_moriyama_data.tar.gz/$', views.sample_data1, name='sample_moriyama_data.tar.gz'),
     url(r'^sample/my_launch.sh/$', views.sample_data2, name='my_launch.sh'),
     url(r'^sample/sample_moriyama_150324.tar.gz/$', views.sample_data3, name='sample_moriyama_150324.tar.gz'),
+    url(r'^docker/drive_px2/autoware_container_image_latest.tar$', views.docker_image_px2, name='docker_image_px2'),
 ]
