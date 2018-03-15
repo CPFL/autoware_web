@@ -61,9 +61,10 @@ def docker_image_px2(request):
         try:
             request_ip = get_client_ip(request)
             record = reader.country(request_ip)
+            country_code = record.country.iso_code
         except:
             country_code = "US"
-        print country_code
+        print request_ip, country_code
         if country_code in ASIA_COUNTRY_CODE:
             return redirect(DOCKER_IMAGE_HOSTS["tokyo"])
         else:
